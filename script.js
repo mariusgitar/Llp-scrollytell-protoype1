@@ -193,21 +193,54 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll('.reveal').forEach((node) => revealObserver.observe(node));
 
-const sceneObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const target = entry.target.dataset.sceneTarget;
-      if (!target) return;
-      document.querySelectorAll('[data-scene-card]').forEach((card) => {
-        card.classList.toggle('active', card.dataset.sceneCard === target);
-      });
-    });
-  },
-  { threshold: 0.65 }
-);
+const problemSection = document.querySelector('.problem-scroll');
+const problemRange = document.querySelector('.problem-scroll-range');
+const problemTrack = document.querySelector('[data-problem-track]');
+const problemPanels = document.querySelectorAll('[data-problem-panel]');
+const problemDots = document.querySelectorAll('[data-problem-dot]');
+const problemProgressText = document.getElementById('problem-progress-text');
 
-document.querySelectorAll('.scene-step').forEach((step) => sceneObserver.observe(step));
+function setProblemProgress(activeIndex) {
+  problemPanels.forEach((panel, index) => {
+    panel.classList.toggle('is-active', index === activeIndex);
+  });
+
+  problemDots.forEach((dot, index) => {
+    dot.classList.toggle('is-active', index === activeIndex);
+  });
+
+  if (problemProgressText) {
+    problemProgressText.textContent = `${activeIndex + 1} / ${problemPanels.length}`;
+  }
+}
+
+function updateProblemScrollScene() {
+  if (!problemSection || !problemRange || !problemTrack || !problemPanels.length) return;
+
+  const isMobileLayout = window.matchMedia('(max-width: 700px)').matches;
+  if (isMobileLayout) {
+    problemTrack.style.transform = 'translateX(0)';
+    setProblemProgress(0);
+    return;
+  }
+
+  const rangeRect = problemRange.getBoundingClientRect();
+  const maxScroll = Math.max(problemRange.offsetHeight - window.innerHeight, 1);
+  const traveled = Math.min(Math.max(-rangeRect.top, 0), maxScroll);
+  const progress = traveled / maxScroll;
+  const maxTranslate = problemTrack.scrollWidth - window.innerWidth;
+  const translateX = Math.max(0, progress * maxTranslate);
+
+  // Horisontal track drives av hvor langt brukeren har scrollet i denne seksjonen.
+  problemTrack.style.transform = `translateX(-${translateX}px)`;
+
+  const activeIndex = Math.min(problemPanels.length - 1, Math.floor(progress * problemPanels.length));
+  setProblemProgress(activeIndex);
+}
+
+updateProblemScrollScene();
+window.addEventListener('scroll', updateProblemScrollScene, { passive: true });
+window.addEventListener('resize', updateProblemScrollScene);
 
 const parallaxLayers = document.querySelectorAll('[data-parallax]');
 let ticking = false;
