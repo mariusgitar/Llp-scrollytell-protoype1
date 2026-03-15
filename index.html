@@ -36,38 +36,76 @@
     </div>
 
     <main>
-      <section id="problem" class="story-block section">
-        <div class="scene-layout">
-          <aside class="scene sticky-panel reveal" aria-hidden="true">
-            <h2>Situasjonen i kommunen</h2>
-            <div class="scene-cards">
-              <article class="scene-card" data-scene-card="problem-1">Tilbudet finnes</article>
-              <article class="scene-card" data-scene-card="problem-2">Fagfolk ser effekt</article>
-              <article class="scene-card" data-scene-card="problem-3">Oppmøtet er lavt</article>
-              <article class="scene-card" data-scene-card="problem-4">Teamet må forstå hvorfor</article>
-            </div>
-          </aside>
-
-          <div class="story-flow">
-            <article class="text-card reveal scene-step" data-scene-target="problem-1">
-              <h3>Kommunen tilbyr foreldrekurs</h3>
-              <p>Kurset er allerede etablert, og de ansatte har jobbet systematisk med innholdet.</p>
-            </article>
-            <article class="text-card reveal scene-step" data-scene-target="problem-2">
-              <h3>Fagfolk opplever at det er nyttig</h3>
-              <p>De som deltar, gir gode tilbakemeldinger og beskriver kurset som relevant.</p>
-            </article>
-            <article class="text-card reveal scene-step" data-scene-target="problem-3">
-              <h3>Likevel kommer få</h3>
-              <p>Oppmøtet holder seg lavt, og teamet kommer ikke nærmere en tydelig forklaring.</p>
-            </article>
-            <article class="text-card reveal scene-step" data-scene-target="problem-4">
-              <h3>Teamet må forstå hvorfor</h3>
-              <p>
-                Før de lager nye tiltak, velger de å starte i <strong>LÆRE</strong>: Hva skjer faktisk
-                for foreldre i møte med tilbudet?
+      <section id="problem" class="story-block section problem-scroll" aria-label="Situasjonen i kommunen">
+        <div class="problem-scroll-range">
+          <div class="problem-sticky reveal">
+            <header class="problem-header">
+              <p class="eyebrow">Situasjonen i kommunen</p>
+              <h2>Fire steg som viser hvorfor teamet starter i LÆRE</h2>
+              <p class="problem-progress" aria-live="polite">
+                <span id="problem-progress-text">1 / 4</span>
+                <span class="problem-dots" aria-hidden="true">
+                  <span class="problem-dot is-active" data-problem-dot="0"></span>
+                  <span class="problem-dot" data-problem-dot="1"></span>
+                  <span class="problem-dot" data-problem-dot="2"></span>
+                  <span class="problem-dot" data-problem-dot="3"></span>
+                </span>
               </p>
-            </article>
+            </header>
+
+            <div class="problem-track" data-problem-track>
+              <article class="problem-panel" data-problem-panel>
+                <div class="problem-visual" aria-hidden="true">
+                  <span class="shape shape-circle"></span>
+                  <span class="shape shape-line"></span>
+                  <span class="shape shape-badge">Kurs</span>
+                </div>
+                <div class="problem-copy">
+                  <p class="panel-kicker">Steg 1</p>
+                  <h3>Kommunen tilbyr foreldrekurs</h3>
+                  <p>Kurset finnes allerede, med strukturert innhold og ansatte som følger opp.</p>
+                </div>
+              </article>
+
+              <article class="problem-panel" data-problem-panel>
+                <div class="problem-visual" aria-hidden="true">
+                  <span class="shape shape-card"></span>
+                  <span class="shape shape-badge">Nyttig</span>
+                  <span class="shape shape-dot-grid"></span>
+                </div>
+                <div class="problem-copy">
+                  <p class="panel-kicker">Steg 2</p>
+                  <h3>Fagfolk opplever at det er nyttig</h3>
+                  <p>De som deltar beskriver kurset som relevant og ser tydelig verdi i opplegget.</p>
+                </div>
+              </article>
+
+              <article class="problem-panel" data-problem-panel>
+                <div class="problem-visual" aria-hidden="true">
+                  <span class="shape shape-line short"></span>
+                  <span class="shape shape-badge warning">Få deltakere</span>
+                  <span class="shape shape-circle small"></span>
+                </div>
+                <div class="problem-copy">
+                  <p class="panel-kicker">Steg 3</p>
+                  <h3>Likevel kommer få</h3>
+                  <p>Oppmøtet er fortsatt lavt, og teamet mangler en trygg forklaring på hvorfor.</p>
+                </div>
+              </article>
+
+              <article class="problem-panel" data-problem-panel>
+                <div class="problem-visual" aria-hidden="true">
+                  <span class="shape shape-card"></span>
+                  <span class="shape shape-line"></span>
+                  <span class="shape shape-badge success">Neste steg</span>
+                </div>
+                <div class="problem-copy">
+                  <p class="panel-kicker">Steg 4</p>
+                  <h3>Teamet må forstå hvorfor</h3>
+                  <p>Før nye tiltak lages, starter de i <strong>LÆRE</strong> for å forstå foreldrenes situasjon.</p>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </section>

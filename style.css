@@ -106,28 +106,6 @@ h2 {
   color: var(--muted);
 }
 
-.scene-cards {
-  display: grid;
-  gap: 0.65rem;
-  margin-top: 1rem;
-}
-
-.scene-card {
-  padding: 0.8rem;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--surface-soft);
-  color: #3a4a5d;
-  transition: 200ms ease;
-}
-
-.scene-card.active {
-  transform: translateX(5px);
-  background: #e2edf8;
-  border-color: #9cb8d0;
-  color: #18344a;
-}
-
 .story-flow {
   display: grid;
   gap: 0.9rem;
@@ -280,6 +258,211 @@ h2 {
   background: radial-gradient(circle at center, #d9f0e7 0%, #d9f0e700 70%);
 }
 
+
+/* Horisontal scrollytelling-seksjon for "Situasjonen i kommunen" */
+.problem-scroll {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.problem-scroll-range {
+  position: relative;
+  height: 340vh;
+}
+
+.problem-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  padding: clamp(1.1rem, 2vw, 1.6rem) clamp(1rem, 3vw, 2.2rem);
+  display: grid;
+  align-content: center;
+  gap: 1.2rem;
+}
+
+.problem-header {
+  width: min(1080px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.problem-header h2 {
+  max-width: 26ch;
+}
+
+.problem-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 600;
+  color: #2b4f6f;
+  margin: 0;
+}
+
+.problem-dots {
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+.problem-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #b9c9d9;
+  transition: 200ms ease;
+}
+
+.problem-dot.is-active {
+  transform: scale(1.15);
+  background: #2f6a95;
+}
+
+.problem-track {
+  width: 400vw;
+  display: flex;
+  gap: 0;
+  will-change: transform;
+}
+
+.problem-panel {
+  width: 100vw;
+  min-height: 70vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: center;
+  gap: 1.1rem;
+  padding: 0 clamp(0.6rem, 2vw, 1rem);
+}
+
+.problem-copy,
+.problem-visual {
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+.problem-copy {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: clamp(1.1rem, 2.2vw, 1.7rem);
+}
+
+.panel-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #2b5d84;
+  font-weight: 700;
+}
+
+.problem-copy p {
+  margin-bottom: 0;
+}
+
+.problem-visual {
+  min-height: clamp(170px, 30vh, 250px);
+  border-radius: 24px;
+  background: linear-gradient(130deg, #e9f2fb 0%, #f6fbff 60%, #eaf6f0 100%);
+  border: 1px solid #d7e3ef;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 999px;
+}
+
+.shape-circle {
+  width: 140px;
+  height: 140px;
+  left: 8%;
+  top: 20%;
+  background: rgba(72, 127, 175, 0.22);
+}
+
+.shape-circle.small {
+  width: 90px;
+  height: 90px;
+  left: 72%;
+  top: 48%;
+}
+
+.shape-line {
+  width: 54%;
+  height: 14px;
+  left: 20%;
+  top: 58%;
+  border-radius: 12px;
+  background: rgba(66, 117, 158, 0.25);
+}
+
+.shape-line.short {
+  width: 34%;
+  top: 34%;
+}
+
+.shape-card {
+  width: 150px;
+  height: 120px;
+  left: 14%;
+  top: 30%;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #c8d8e8;
+  box-shadow: 0 8px 24px rgba(27, 58, 89, 0.12);
+}
+
+.shape-badge {
+  right: 14%;
+  top: 24%;
+  padding: 0.42rem 0.78rem;
+  background: #d5e7f6;
+  color: #1f4f72;
+  font-weight: 700;
+  font-size: 0.86rem;
+}
+
+.shape-badge.warning {
+  background: #f8e9d2;
+  color: #7a4f12;
+}
+
+.shape-badge.success {
+  background: #d9efe6;
+  color: #21684f;
+}
+
+.shape-dot-grid {
+  width: 130px;
+  height: 90px;
+  right: 16%;
+  bottom: 18%;
+  border-radius: 14px;
+  background-image: radial-gradient(circle, rgba(62, 112, 151, 0.36) 2px, transparent 2px);
+  background-size: 14px 14px;
+}
+
+.problem-panel.is-active .problem-copy,
+.problem-panel.is-active .problem-visual {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.problem-copy,
+.problem-visual {
+  opacity: 0.7;
+  transform: translateY(10px);
+  transition: transform 280ms ease, opacity 280ms ease;
+}
+
 @media (min-width: 900px) {
   .scene-layout {
     grid-template-columns: 0.95fr 1.05fr;
@@ -302,4 +485,42 @@ h2 {
   .parallax-layer {
     opacity: 0.35;
   }
+
+
+  .problem-scroll-range {
+    height: auto;
+  }
+
+  .problem-sticky {
+    position: static;
+    height: auto;
+    padding-inline: 0;
+    overflow: visible;
+  }
+
+  .problem-header,
+  .problem-copy,
+  .problem-visual {
+    width: min(1100px, 100% - 2rem);
+  }
+
+  .problem-track {
+    width: 100%;
+    display: grid;
+    gap: 0.9rem;
+    transform: none !important;
+  }
+
+  .problem-panel {
+    width: 100%;
+    min-height: auto;
+    padding: 0;
+  }
+
+  .problem-copy,
+  .problem-visual {
+    opacity: 1;
+    transform: none;
+  }
+
 }
