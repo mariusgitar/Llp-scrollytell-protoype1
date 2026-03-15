@@ -1,201 +1,229 @@
-const learnData = {
+const learnOptions = {
   intervju: {
     title: 'Brukerintervju',
-    story:
-      'Teamet snakker med tre foreldre. Én sier: «Jeg trodde kurset var for foreldre som sliter.»',
     insight:
-      'Utfordringen kan handle mindre om interesse og mer om hvordan kurset oppfattes. Stigma og innramming betyr mye.',
-    note: 'Intervjuer avdekker motivasjon, følelser og skjulte barrierer.',
-    bridge:
-      'Intervjuene ga konkrete ord og historier fra foreldre. Nå vil teamet lage noe som møter akkurat disse opplevelsene.'
+      'Teamet hører at noen foreldre tror kurset er for dem som allerede har store utfordringer.',
+    method: 'Direkte samtaler gir nyanser om motivasjon, språk og opplevde barrierer.',
+    bridge: 'Intervjuene gir konkrete ord som teamet kan bruke når de former første løsning.'
   },
   survey: {
     title: 'Spørreundersøkelse',
-    story:
-      'En undersøkelse viser at mange foreldre synes kurset virker nyttig. Samtidig forklarer få hvorfor de ikke deltar.',
-    insight:
-      'Teamet får bred oversikt over mønstre, men mindre dybde i de konkrete årsakene.',
-    note: 'Spørreundersøkelser er nyttige for mønstre i skala, men ofte svakere på nyanser.',
-    bridge:
-      'Tallene peker på et tydelig mønster i kommunen. Nå vil teamet lage et første grep som kan forbedre deltakelsen raskt.'
+    insight: 'Teamet ser mønstre i deltakelse, men får færre forklaringer på hvorfor oppmøtet er lavt.',
+    method: 'Undersøkelser er raske for oversikt, men svakere på dybde.',
+    bridge: 'Mønstrene fra undersøkelsen gir retning for hva som bør testes først.'
   },
   experience: {
     title: 'Basere seg på egen erfaring',
-    story:
-      'Teamet antar at tidspunkt er hovedproblemet. De diskuterer å endre timeplanen, men er ikke helt sikre.',
-    insight: 'Antakelser kan gi rask retning, men de er fortsatt antakelser.',
-    note: 'Intern erfaring kan være verdifull, men bør utfordres eller testes tidlig.',
-    bridge:
-      'Teamet har et mulig spor og vil lage en enkel løsning de raskt kan teste for å sjekke om antakelsen stemmer.'
+    insight: 'Teamet mistenker at tidspunkt og terskel for oppstart er hovedårsaker til lav deltakelse.',
+    method: 'Intern erfaring kan være nyttig, men bør valideres så tidlig som mulig.',
+    bridge: 'Erfaringssporet gir en rask hypotese som kan formes til en enkel første løsning.'
   }
 };
 
-const lageData = {
+const makeOptions = {
   invitasjon: {
     title: 'Ny måte å invitere foreldre på',
-    baseStory:
-      'Teamet lager en ny invitasjon i enklere språk, med tydelig nytte og en vennlig tone.',
-    note: 'Konseptet er lett å teste raskt i ulike kanaler.',
-    directionByLearn: {
-      intervju:
-        'Invitasjonen bygger på foreldrenes egne ord fra intervjuene og normaliserer at kurset er for alle.',
-      survey:
-        'Invitasjonen målrettes mot de gruppene som svarte lavest i undersøkelsen, med tydelig informasjon om tid og format.',
-      experience:
-        'Invitasjonen fokuserer på fleksibilitet i tidspunkt siden teamets erfaring peker på tid som mulig barriere.'
+    base: 'Teamet lager en vennlig invitasjon med enklere språk og tydelig nytte.',
+    note: 'Lav innsats, høy læring i tidlig test.',
+    variationByLearn: {
+      intervju: 'Språket bygger på ordvalg foreldre selv brukte i intervjuene.',
+      survey: 'Invitasjonen målrettes mot grupper med lavest respons i undersøkelsen.',
+      experience: 'Invitasjonen prioriterer fleksibilitet i tid siden teamet tror tidspunkt er nøkkelen.'
     }
   },
   pilot: {
     title: 'En enklere pilotversjon av kurset',
-    baseStory:
-      'Teamet lager en kort pilot med færre temaer og lav terskel for å delta første gang.',
+    base: 'Teamet lager en kort pilot med lav terskel og tydelig struktur fra første møte.',
     note: 'En liten pilot gjør det enklere å justere før større utrulling.',
-    directionByLearn: {
-      intervju:
-        'Piloten legger inn trygg introduksjon og tydelig forventningsavklaring basert på det foreldrene fortalte.',
-      survey:
-        'Piloten settes opp med tidspunkt og format som treffer mønstrene i undersøkelsen best mulig.',
-      experience:
-        'Piloten prøver et nytt tidspunkt først, slik at teamet kan undersøke antakelsen i praksis.'
+    variationByLearn: {
+      intervju: 'Piloten starter med trygg introduksjon som svar på opplevd stigma.',
+      survey: 'Piloten legges til tidspunkt som matcher mønstrene i dataene.',
+      experience: 'Piloten tester først teamets hypotese om tidsbarrierer.'
     }
   },
   samskaping: {
     title: 'En samskapingsøkt med foreldre',
-    baseStory:
-      'Teamet inviterer foreldre og ansatte til en kort samskapingsøkt for å forme tilbudet sammen.',
-    note: 'Samskaping bygger eierskap og gir bedre forankring i behovene.',
-    directionByLearn: {
-      intervju:
-        'Økten starter med temaene som kom frem i intervjuene og lar foreldrene prioritere hva som er viktigst.',
-      survey:
-        'Økten bruker funnene fra undersøkelsen som utgangspunkt og går dypere i hvorfor mønstrene oppstår.',
-      experience:
-        'Økten utfordrer teamets antakelser direkte ved å la foreldre reagere på dagens kursopplegg.'
+    base: 'Teamet inviterer foreldre inn for å forme innhold, format og rammer sammen.',
+    note: 'Samskaping bygger eierskap og forbedrer relevansen i tilbudet.',
+    variationByLearn: {
+      intervju: 'Samtaletemaene i økten bygger direkte på innsiktene fra intervjuene.',
+      survey: 'Økten bruker surveyfunn som utgangspunkt for å grave i hvorfor-mønstrene.',
+      experience: 'Økten brukes aktivt for å utfordre teamets egne antakelser.'
     }
   }
 };
 
 const state = {
   learnChoice: null,
-  lageChoice: null
+  makeChoice: null
 };
 
-const learnButtons = document.querySelectorAll('[data-learn-method]');
-const lageButtons = document.querySelectorAll('[data-lage-method]');
-
-const learnOutcomeSection = document.getElementById('learn-outcome');
-const learnOutcomeTitle = document.getElementById('learn-outcome-title');
-const learnOutcomeStory = document.getElementById('learn-outcome-story');
-const learnOutcomeInsight = document.getElementById('learn-outcome-insight');
-const learnOutcomeNote = document.getElementById('learn-outcome-note');
-
-const transitionSection = document.getElementById('to-lage');
-const transitionText = document.getElementById('to-lage-text');
-const lageChoiceSection = document.getElementById('lage-choice');
-
-const lageOutcomeSection = document.getElementById('lage-outcome');
-const lageOutcomeTitle = document.getElementById('lage-outcome-title');
-const lageOutcomeStory = document.getElementById('lage-outcome-story');
-const lageOutcomeConcept = document.getElementById('lage-outcome-concept');
-const lageOutcomeNote = document.getElementById('lage-outcome-note');
-
+const learnButtons = document.querySelectorAll('[data-learn]');
+const makeButtons = document.querySelectorAll('[data-make]');
+const learnOutcome = document.getElementById('learn-outcome');
+const transitionSection = document.getElementById('transition');
+const transitionText = document.getElementById('transition-text');
+const makeSection = document.getElementById('make');
+const makeOutcome = document.getElementById('make-outcome');
 const summarySection = document.getElementById('summary');
+const restartButton = document.getElementById('restart');
+const statusLearn = document.getElementById('status-learn');
+const statusMake = document.getElementById('status-make');
 const summaryLearn = document.getElementById('summary-learn');
-const summaryLage = document.getElementById('summary-lage');
-const summaryDirection = document.getElementById('summary-direction');
+const summaryMake = document.getElementById('summary-make');
+const summaryResult = document.getElementById('summary-result');
 
-const proveTeaserSection = document.getElementById('prove-teaser');
+function renderLearnChoice(learnKey) {
+  const learn = learnOptions[learnKey];
+  if (!learn) return;
 
-function revealSection(section) {
-  section.classList.remove('hidden');
-  section.classList.add('revealed');
+  learnOutcome.innerHTML = `
+    <p class="eyebrow">Valgt i LÆRE</p>
+    <h3>${learn.title}</h3>
+    <p>${learn.insight}</p>
+    <p><strong>Metodemerknad:</strong> ${learn.method}</p>
+  `;
+
+  transitionText.textContent = learn.bridge;
+
+  learnOutcome.classList.remove('hidden');
+  transitionSection.classList.remove('hidden');
+  makeSection.classList.remove('hidden');
+
+  statusLearn.textContent = learn.title;
 }
 
-function hideSection(section) {
-  section.classList.add('hidden');
-  section.classList.remove('revealed');
+function renderMakeChoice() {
+  const learn = learnOptions[state.learnChoice];
+  const make = makeOptions[state.makeChoice];
+  if (!learn || !make) return;
+
+  const variation = make.variationByLearn[state.learnChoice];
+
+  makeOutcome.innerHTML = `
+    <p class="eyebrow">Valgt i LAGE</p>
+    <h3>${make.title}</h3>
+    <p>${make.base}</p>
+    <p><strong>Variasjon fra LÆRE:</strong> ${variation}</p>
+    <p><strong>Konsekvens:</strong> ${make.note}</p>
+  `;
+
+  makeOutcome.classList.remove('hidden');
+  summarySection.classList.remove('hidden');
+
+  statusMake.textContent = make.title;
+  summaryLearn.textContent = learn.title;
+  summaryMake.textContent = make.title;
+  summaryResult.textContent = `${make.base} ${variation}`;
 }
 
-function renderLearnOutcome(learnKey) {
-  const learnChoice = learnData[learnKey];
-  if (!learnChoice) return;
+function resetMakeFlow() {
+  state.makeChoice = null;
+  statusMake.textContent = 'Ikke valgt';
+  makeOutcome.classList.add('hidden');
+  summarySection.classList.add('hidden');
 
-  learnOutcomeTitle.textContent = learnChoice.title;
-  learnOutcomeStory.textContent = learnChoice.story;
-  learnOutcomeInsight.textContent = learnChoice.insight;
-  learnOutcomeNote.textContent = learnChoice.note;
-  transitionText.textContent = learnChoice.bridge;
-
-  revealSection(learnOutcomeSection);
-  revealSection(transitionSection);
-  revealSection(lageChoiceSection);
-}
-
-function renderLageOutcome(learnKey, lageKey) {
-  const learnChoice = learnData[learnKey];
-  const lageChoice = lageData[lageKey];
-  if (!learnChoice || !lageChoice) return;
-
-  const conceptDirection = lageChoice.directionByLearn[learnKey];
-
-  lageOutcomeTitle.textContent = lageChoice.title;
-  lageOutcomeStory.textContent = lageChoice.baseStory;
-  lageOutcomeConcept.textContent = conceptDirection;
-  lageOutcomeNote.textContent = lageChoice.note;
-
-  summaryLearn.textContent = learnChoice.title;
-  summaryLage.textContent = lageChoice.title;
-  summaryDirection.textContent = conceptDirection;
-
-  revealSection(lageOutcomeSection);
-  revealSection(summarySection);
-  revealSection(proveTeaserSection);
-}
-
-function resetLageFlow() {
-  state.lageChoice = null;
-  lageButtons.forEach((button) => {
-    button.classList.remove('selected-lage');
+  makeButtons.forEach((button) => {
+    button.classList.remove('selected');
     button.setAttribute('aria-pressed', 'false');
   });
-
-  hideSection(lageOutcomeSection);
-  hideSection(summarySection);
-  hideSection(proveTeaserSection);
 }
 
 learnButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    const learnKey = button.dataset.learnMethod;
-    state.learnChoice = learnKey;
+    const selected = button.dataset.learn;
+    state.learnChoice = selected;
 
-    learnButtons.forEach((learnButton) => {
-      const selected = learnButton.dataset.learnMethod === learnKey;
-      learnButton.classList.toggle('selected', selected);
-      learnButton.setAttribute('aria-pressed', String(selected));
+    learnButtons.forEach((item) => {
+      const isSelected = item.dataset.learn === selected;
+      item.classList.toggle('selected', isSelected);
+      item.setAttribute('aria-pressed', String(isSelected));
     });
 
-    renderLearnOutcome(learnKey);
-    resetLageFlow();
-
-    learnOutcomeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    renderLearnChoice(selected);
+    resetMakeFlow();
+    learnOutcome.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 
-lageButtons.forEach((button) => {
+makeButtons.forEach((button) => {
   button.addEventListener('click', () => {
     if (!state.learnChoice) return;
 
-    const lageKey = button.dataset.lageMethod;
-    state.lageChoice = lageKey;
+    const selected = button.dataset.make;
+    state.makeChoice = selected;
 
-    lageButtons.forEach((lageButton) => {
-      const selected = lageButton.dataset.lageMethod === lageKey;
-      lageButton.classList.toggle('selected-lage', selected);
-      lageButton.setAttribute('aria-pressed', String(selected));
+    makeButtons.forEach((item) => {
+      const isSelected = item.dataset.make === selected;
+      item.classList.toggle('selected', isSelected);
+      item.setAttribute('aria-pressed', String(isSelected));
     });
 
-    renderLageOutcome(state.learnChoice, lageKey);
-    lageOutcomeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    renderMakeChoice();
+    makeOutcome.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+});
+
+restartButton.addEventListener('click', () => {
+  state.learnChoice = null;
+  statusLearn.textContent = 'Ikke valgt';
+  learnOutcome.classList.add('hidden');
+  transitionSection.classList.add('hidden');
+  makeSection.classList.add('hidden');
+
+  learnButtons.forEach((button) => {
+    button.classList.remove('selected');
+    button.setAttribute('aria-pressed', 'false');
+  });
+
+  resetMakeFlow();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  },
+  { threshold: 0.16 }
+);
+
+document.querySelectorAll('.reveal').forEach((node) => revealObserver.observe(node));
+
+const sceneObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const target = entry.target.dataset.sceneTarget;
+      if (!target) return;
+      document.querySelectorAll('[data-scene-card]').forEach((card) => {
+        card.classList.toggle('active', card.dataset.sceneCard === target);
+      });
+    });
+  },
+  { threshold: 0.65 }
+);
+
+document.querySelectorAll('.scene-step').forEach((step) => sceneObserver.observe(step));
+
+const parallaxLayers = document.querySelectorAll('[data-parallax]');
+let ticking = false;
+
+function updateParallax() {
+  const scrollY = window.scrollY;
+  parallaxLayers.forEach((layer) => {
+    const speed = Number(layer.dataset.parallax);
+    layer.style.transform = `translateY(${scrollY * speed}px)`;
+  });
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(updateParallax);
+    ticking = true;
+  }
 });

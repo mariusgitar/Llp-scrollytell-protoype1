@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LLP Quest – Lære til Lage prototype</title>
+    <title>LLP Quest – Scrollytelling prototype</title>
     <meta
       name="description"
-      content="En enkel scrollytelling-prototype som viser reisen fra LÆRE til LAGE i Lære, Lage, Prøve."
+      content="Interaktiv scrollytelling-prototype for LLP Quest: fra LÆRE til LAGE med en lett, visuell opplevelse."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,142 +17,135 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="hero section">
-      <div class="eyebrow">Lære · Lage · Prøve</div>
-      <h1>LLP Quest: Fra innsikt til første løsning</h1>
+    <div class="parallax-layer layer-a" data-parallax="0.08" aria-hidden="true"></div>
+    <div class="parallax-layer layer-b" data-parallax="0.14" aria-hidden="true"></div>
+
+    <header class="hero section reveal">
+      <p class="eyebrow">Lære · Lage · Prøve</p>
+      <h1>LLP Quest: Fra innsikt til første retning</h1>
       <p class="lead">
-        Kommunen tilbyr foreldrekurs. Likevel møter få opp. Teamet vet at kurset kan være
-        nyttig – men før de endrer noe, må de forstå situasjonen bedre.
+        Kommunen tilbyr foreldrekurs. Fagfolk vet at det hjelper. Likevel kommer få. Denne prototypen
+        lar deg scrolle gjennom reisen fra problemforståelse til et første konsept i LÆRE og LAGE.
       </p>
-      <a class="scroll-hint" href="#story-1">Scroll videre ↓</a>
+      <a href="#problem" class="scroll-indicator">Scroll for å starte historien ↓</a>
     </header>
 
+    <div class="status-chip" aria-live="polite">
+      <span><strong>LÆRE:</strong> <span id="status-learn">Ikke valgt</span></span>
+      <span><strong>LAGE:</strong> <span id="status-make">Ikke valgt</span></span>
+    </div>
+
     <main>
-      <section id="story-1" class="section story">
-        <h2>Kurset finnes, men foreldre kommer ikke</h2>
-        <p>
-          De ansatte har brukt tid på å planlegge et godt tilbud. Tilbakemeldingene fra de få som
-          deltar er positive. Likevel er oppmøtet lavt, uke etter uke.
-        </p>
-        <p>Frustrasjonen øker: “Vi vet jo at dette kan hjelpe. Hvorfor når vi ikke ut?”</p>
-      </section>
+      <section id="problem" class="story-block section">
+        <div class="scene-layout">
+          <aside class="scene sticky-panel reveal" aria-hidden="true">
+            <h2>Situasjonen i kommunen</h2>
+            <div class="scene-cards">
+              <article class="scene-card" data-scene-card="problem-1">Tilbudet finnes</article>
+              <article class="scene-card" data-scene-card="problem-2">Fagfolk ser effekt</article>
+              <article class="scene-card" data-scene-card="problem-3">Oppmøtet er lavt</article>
+              <article class="scene-card" data-scene-card="problem-4">Teamet må forstå hvorfor</article>
+            </div>
+          </aside>
 
-      <section class="section story">
-        <h2>Teamet trenger innsikt før handling</h2>
-        <p>
-          I stedet for å hoppe rett til løsninger bestemmer teamet seg for å gjøre et lite, bevisst
-          valg i <strong>LÆRE</strong>-fasen: Hvordan skal de lære mer om hva som faktisk skjer?
-        </p>
-      </section>
-
-      <section class="section choice" aria-labelledby="learn-choice-title">
-        <h2 id="learn-choice-title">LÆRE: Hvordan vil dere lære mer?</h2>
-        <p class="choice-intro">Velg én metode for å ta neste steg i fortellingen.</p>
-
-        <div class="options" role="list">
-          <button class="option-card" data-learn-method="intervju" type="button" role="listitem">
-            <span class="option-title">Brukerintervju</span>
-            <span class="option-text">Snakk direkte med noen foreldre.</span>
-          </button>
-
-          <button class="option-card" data-learn-method="survey" type="button" role="listitem">
-            <span class="option-title">Spørreundersøkelse</span>
-            <span class="option-text">Få et raskt bilde fra mange på én gang.</span>
-          </button>
-
-          <button class="option-card" data-learn-method="experience" type="button" role="listitem">
-            <span class="option-title">Basere seg på egen erfaring</span>
-            <span class="option-text">Bruk intern kunnskap for å tolke situasjonen.</span>
-          </button>
-        </div>
-      </section>
-
-      <section id="learn-outcome" class="section outcome hidden" aria-live="polite">
-        <div class="outcome-card">
-          <p class="label">Valgt i LÆRE</p>
-          <h3 id="learn-outcome-title"></h3>
-          <p id="learn-outcome-story"></p>
-
-          <div class="insight-block">
-            <p class="label">Innsikt</p>
-            <p id="learn-outcome-insight"></p>
+          <div class="story-flow">
+            <article class="text-card reveal scene-step" data-scene-target="problem-1">
+              <h3>Kommunen tilbyr foreldrekurs</h3>
+              <p>Kurset er allerede etablert, og de ansatte har jobbet systematisk med innholdet.</p>
+            </article>
+            <article class="text-card reveal scene-step" data-scene-target="problem-2">
+              <h3>Fagfolk opplever at det er nyttig</h3>
+              <p>De som deltar, gir gode tilbakemeldinger og beskriver kurset som relevant.</p>
+            </article>
+            <article class="text-card reveal scene-step" data-scene-target="problem-3">
+              <h3>Likevel kommer få</h3>
+              <p>Oppmøtet holder seg lavt, og teamet kommer ikke nærmere en tydelig forklaring.</p>
+            </article>
+            <article class="text-card reveal scene-step" data-scene-target="problem-4">
+              <h3>Teamet må forstå hvorfor</h3>
+              <p>
+                Før de lager nye tiltak, velger de å starte i <strong>LÆRE</strong>: Hva skjer faktisk
+                for foreldre i møte med tilbudet?
+              </p>
+            </article>
           </div>
-
-          <p class="method-note" id="learn-outcome-note"></p>
         </div>
       </section>
 
-      <section id="to-lage" class="section story transition hidden">
-        <h2>Overgang: Fra LÆRE til LAGE</h2>
-        <p id="to-lage-text"></p>
-        <p>
-          Teamet går videre til <strong>LAGE</strong>-fasen for å gjøre innsikten om til en konkret
-          retning de kan prøve ut.
-        </p>
-      </section>
+      <section id="learn" class="story-block section">
+        <div class="scene-layout">
+          <aside class="sticky-panel reveal">
+            <h2>LÆRE: Velg hvordan teamet lærer</h2>
+            <p class="panel-copy">Valget følger med videre inn i LAGE.</p>
+            <div class="options" role="list">
+              <button class="option-card" type="button" role="listitem" data-learn="intervju">
+                <span class="option-title">Brukerintervju</span>
+                <span class="option-text">Snakk direkte med foreldre.</span>
+              </button>
+              <button class="option-card" type="button" role="listitem" data-learn="survey">
+                <span class="option-title">Spørreundersøkelse</span>
+                <span class="option-text">Få et raskt bilde fra flere.</span>
+              </button>
+              <button class="option-card" type="button" role="listitem" data-learn="experience">
+                <span class="option-title">Basere seg på egen erfaring</span>
+                <span class="option-text">Bruk intern kunnskap først.</span>
+              </button>
+            </div>
+          </aside>
 
-      <section id="lage-choice" class="section choice hidden" aria-labelledby="lage-choice-title">
-        <h2 id="lage-choice-title">LAGE: Hva vil dere lage først?</h2>
-        <p class="choice-intro">Velg ett første konsept. Dere kan justere senere i PRØVE.</p>
-
-        <div class="options" role="list">
-          <button class="option-card" data-lage-method="invitasjon" type="button" role="listitem">
-            <span class="option-title">Ny måte å invitere foreldre på</span>
-            <span class="option-text">Test nytt språk, format og kanal for invitasjon.</span>
-          </button>
-
-          <button class="option-card" data-lage-method="pilot" type="button" role="listitem">
-            <span class="option-title">En enklere pilotversjon av kurset</span>
-            <span class="option-text">Lag en kortere og mer tilgjengelig testutgave.</span>
-          </button>
-
-          <button class="option-card" data-lage-method="samskaping" type="button" role="listitem">
-            <span class="option-title">En samskapingsøkt med foreldre</span>
-            <span class="option-text">Inviter foreldre inn for å forme tilbudet sammen.</span>
-          </button>
-        </div>
-      </section>
-
-      <section id="lage-outcome" class="section outcome hidden" aria-live="polite">
-        <div class="outcome-card outcome-card-lage">
-          <p class="label">Valgt i LAGE</p>
-          <h3 id="lage-outcome-title"></h3>
-          <p id="lage-outcome-story"></p>
-
-          <div class="insight-block">
-            <p class="label">Konseptretning</p>
-            <p id="lage-outcome-concept"></p>
+          <div class="story-flow">
+            <article id="learn-outcome" class="text-card outcome-card hidden" aria-live="polite"></article>
           </div>
-
-          <p class="method-note" id="lage-outcome-note"></p>
         </div>
       </section>
 
-      <section id="summary" class="section outcome hidden" aria-live="polite">
-        <div class="outcome-card summary-card">
-          <p class="label">Oppsummering</p>
-          <h3>Teamet har nå en tydelig retning</h3>
-          <ul class="summary-list">
-            <li><strong>LÆRE-valg:</strong> <span id="summary-learn"></span></li>
-            <li><strong>LAGE-valg:</strong> <span id="summary-lage"></span></li>
-            <li><strong>Konsept:</strong> <span id="summary-direction"></span></li>
+      <section id="transition" class="section transition-block reveal hidden" aria-live="polite">
+        <p class="eyebrow">Fra LÆRE til LAGE</p>
+        <h2>Innsikten former hva teamet lager først</h2>
+        <p id="transition-text"></p>
+      </section>
+
+      <section id="make" class="story-block section hidden">
+        <div class="scene-layout">
+          <aside class="sticky-panel reveal">
+            <h2>LAGE: Velg første konseptretning</h2>
+            <p class="panel-copy">Her får du en grunnretning + en liten variasjon fra LÆRE-valget.</p>
+            <div class="options" role="list">
+              <button class="option-card option-card-make" type="button" role="listitem" data-make="invitasjon">
+                <span class="option-title">Ny måte å invitere foreldre på</span>
+                <span class="option-text">Test språk, format og kanal.</span>
+              </button>
+              <button class="option-card option-card-make" type="button" role="listitem" data-make="pilot">
+                <span class="option-title">En enklere pilotversjon av kurset</span>
+                <span class="option-text">Gjør første versjon lettere å delta i.</span>
+              </button>
+              <button class="option-card option-card-make" type="button" role="listitem" data-make="samskaping">
+                <span class="option-title">En samskapingsøkt med foreldre</span>
+                <span class="option-text">Form tilbudet sammen med målgruppen.</span>
+              </button>
+            </div>
+          </aside>
+
+          <div class="story-flow">
+            <article id="make-outcome" class="text-card outcome-card make-outcome hidden" aria-live="polite"></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="summary" class="section summary hidden" aria-live="polite">
+        <article class="text-card reveal">
+          <p class="eyebrow">Oppsummering</p>
+          <h2>En tydelig reise fra innsikt til retning</h2>
+          <ul>
+            <li><strong>Du lærte gjennom:</strong> <span id="summary-learn"></span></li>
+            <li><strong>Du valgte å lage:</strong> <span id="summary-make"></span></li>
+            <li><strong>Resultat:</strong> <span id="summary-result"></span></li>
           </ul>
-        </div>
-      </section>
-
-      <section id="prove-teaser" class="section story teaser hidden">
-        <h2>Neste steg: PRØVE</h2>
-        <p>
-          Nå er teamet klare for å teste konseptet i liten skala, samle respons og lære videre.
-          Reisen fortsetter i PRØVE-fasen.
-        </p>
+          <p><strong>Neste steg:</strong> Teaser for PRØVE – test i liten skala og lær videre.</p>
+          <button id="restart" class="restart-btn" type="button">Start reisen på nytt</button>
+        </article>
       </section>
     </main>
-
-    <footer class="section footer">
-      <p><strong>Lære, Lage, Prøve</strong> · Dette er en prototype av LÆRE + LAGE.</p>
-      <p>Neste utvidelse er å vise hvordan PRØVE gjør konseptet bedre gjennom små tester.</p>
-    </footer>
 
     <script src="script.js"></script>
   </body>
