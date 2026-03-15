@@ -1,59 +1,51 @@
 # LLP Quest – LÆRE + LAGE prototype
 
-Dette er en liten, statisk prototype for å teste **scrollytelling-opplevelsen** i de to første fasene av metoden **Lære, Lage, Prøve (LLP)**.
+Dette er en statisk POC i HTML, CSS og vanilla JavaScript for å teste en mer levende **editorial scrollytelling**-opplevelse i LLP Quest.
 
-Prototypen bruker én case:
-- En kommune tilbyr foreldrekurs
-- Oppmøtet er lavt
-- Brukeren velger først en metode i **LÆRE**
-- Deretter velger brukeren et første konsept i **LAGE**
-- Valgene samles i en kort oppsummering før en teaser om neste steg: **PRØVE**
+## Hva som er endret
 
-## Struktur i prototypen
+- Prototypen er bygget om til en tydeligere scrollytelling-reise med nesten fullskjerms seksjoner.
+- Problemfasen bruker sticky scene-panel + tekstblokker som bygger narrativet stegvis.
+- LÆRE og LAGE er fortsatt enkle valgkort, men valgene oppdaterer en sticky statuslinje underveis.
+- Overgangen mellom LÆRE og LAGE er gjort tydeligere med egen visuell overgangsseksjon.
+- Outcome i LAGE har en grunntekst + en liten variasjon basert på valgt metode i LÆRE.
+- Lette motion-grep er lagt inn med:
+  - reveal-animasjoner via `IntersectionObserver`
+  - subtile parallax-lag på dekorative bakgrunnsformer
 
-1. Intro og problemforståelse (lav deltakelse på foreldrekurs)
-2. **LÆRE** med tre valg:
-   - Brukerintervju
-   - Spørreundersøkelse
-   - Basere seg på egen erfaring
-3. Overgang fra innsikt til idéarbeid
-4. **LAGE** med tre valg:
-   - Ny måte å invitere foreldre på
-   - En enklere pilotversjon av kurset
-   - En samskapingsøkt med foreldre
-5. Dynamisk resultat der LAGE-retningen påvirkes litt av valgt LÆRE-metode
-6. Oppsummeringskort med valgte steg og konseptretning
-7. Kort teaser om at neste steg er PRØVE
+## Hvordan POC-en er bygd opp
 
-Målet er rask validering av format og retning, ikke ferdig produkt.
+- `index.html`
+  - Semantisk struktur med hero, problem-scene, LÆRE, overgang, LAGE og oppsummering.
+  - Sticky scene-paneler og sticky status-chip for valg.
+- `style.css`
+  - CSS custom properties for farger, spacing, radius og skygge.
+  - Responsive layout som bruker sticky på desktop og en enklere lineær flyt på mobil.
+- `script.js`
+  - Enkel state:
+    ```js
+    const state = {
+      learnChoice: null,
+      makeChoice: null
+    };
+    ```
+  - Valg- og outcome-data i objekter.
+  - `IntersectionObserver` for reveal og aktive problemsteg.
+  - Lett parallax med `requestAnimationFrame`-drevet scroll-oppdatering.
 
 ## Kjør lokalt
 
-Siden er ren HTML/CSS/JS og kan åpnes direkte i nettleser:
-
-1. Last ned/klon repoet
-2. Åpne `index.html`
-
-For lokal server (anbefalt):
+Åpne `index.html` direkte, eller start en enkel lokal server:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Gå til: `http://localhost:8000`
+Åpne deretter `http://localhost:8000`.
 
-## Publiser med GitHub Pages
+## Neste steg hvis testen fungerer
 
-1. Push repoet til GitHub.
-2. Gå til **Settings → Pages**.
-3. Under **Build and deployment**:
-   - Source: **Deploy from a branch**
-   - Branch: **main** (eller aktuell branch), folder: **/ (root)**
-4. Lagre.
-5. Vent til GitHub Pages bygger siden, og åpne URL-en som vises i Pages-innstillingene.
-
-## Hvordan utvide senere
-
-- **PRØVE-fasen:** Legg til en tredje valgseksjon der teamet velger hva de vil teste først, og vis hvilke læringsspørsmål testen skal svare på.
-- **Flere case:** Flytt all tekst og alle valg inn i egne dataobjekter per case for gjenbruk av samme UI-mønster.
-- **Enkel refleksjon:** Legg til et kort spørsmål etter oppsummeringen, som “Hva ville du testet først i PRØVE?”.
+1. Legg til 1–2 alternative case i samme datastruktur for å teste gjenbruk.
+2. Utvid med en enkel PRØVE-teaser med ett testvalg (uten tung branching).
+3. Kjør raske brukertester for å validere om sticky scene + statuslinje faktisk gjør reisen tydeligere.
+4. Finjuster språk og mikrotekst i valg/outcomes basert på testobservasjoner.
