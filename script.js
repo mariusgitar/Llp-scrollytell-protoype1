@@ -199,6 +199,8 @@ const problemTrack = document.querySelector('[data-problem-track]');
 const problemPanels = document.querySelectorAll('[data-problem-panel]');
 const problemDots = document.querySelectorAll('[data-problem-dot]');
 const problemProgressText = document.getElementById('problem-progress-text');
+let mobileProblemObserver = null;
+let mobileActiveProblemIndex = 0;
 
 function setProblemProgress(activeIndex) {
   problemPanels.forEach((panel, index) => {
@@ -214,15 +216,53 @@ function setProblemProgress(activeIndex) {
   }
 }
 
+function setupMobileProblemObserver() {
+  if (mobileProblemObserver || !problemPanels.length) return;
+
+  // Mobilvarianten bruker IntersectionObserver for å holde ett tydelig aktivt steg om gangen.
+  mobileProblemObserver = new IntersectionObserver(
+    (entries) => {
+      const visibleEntries = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (!visibleEntries.length) return;
+
+      const nextIndex = Array.from(problemPanels).indexOf(visibleEntries[0].target);
+      if (nextIndex === -1 || nextIndex === mobileActiveProblemIndex) return;
+
+      mobileActiveProblemIndex = nextIndex;
+      setProblemProgress(mobileActiveProblemIndex);
+    },
+    {
+      root: null,
+      threshold: [0.35, 0.5, 0.7],
+      rootMargin: '-18% 0px -28% 0px'
+    }
+  );
+
+  problemPanels.forEach((panel) => mobileProblemObserver.observe(panel));
+  setProblemProgress(mobileActiveProblemIndex);
+}
+
+function teardownMobileProblemObserver() {
+  if (!mobileProblemObserver) return;
+  mobileProblemObserver.disconnect();
+  mobileProblemObserver = null;
+}
+
 function updateProblemScrollScene() {
   if (!problemSection || !problemRange || !problemTrack || !problemPanels.length) return;
 
   const isMobileLayout = window.matchMedia('(max-width: 700px)').matches;
   if (isMobileLayout) {
+    setupMobileProblemObserver();
     problemTrack.style.transform = 'translateX(0)';
-    setProblemProgress(0);
+    setProblemProgress(mobileActiveProblemIndex);
     return;
   }
+
+  teardownMobileProblemObserver();
 
   const rangeRect = problemRange.getBoundingClientRect();
   const maxScroll = Math.max(problemRange.offsetHeight - window.innerHeight, 1);
