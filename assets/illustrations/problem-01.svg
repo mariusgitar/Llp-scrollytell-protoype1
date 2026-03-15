@@ -1,0 +1,51 @@
+<svg width="900" height="420" viewBox="0 0 900 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Kommunen tilbyr foreldrekurs</title>
+  <desc id="desc">En kommunebygning sender en invitasjon videre til et kursrom med foreldre.</desc>
+  <defs>
+    <linearGradient id="bg1" x1="120" y1="40" x2="770" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8F1FB"/>
+      <stop offset="1" stop-color="#EEF8F3"/>
+    </linearGradient>
+    <filter id="soft" x="0" y="0" width="900" height="420" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-opacity="0.12" flood-color="#27455F"/>
+    </filter>
+  </defs>
+  <rect x="12" y="12" width="876" height="396" rx="30" fill="url(#bg1)"/>
+
+  <g filter="url(#soft)">
+    <rect x="80" y="130" width="180" height="180" rx="20" fill="#FFFFFF" stroke="#C9DBED" stroke-width="2"/>
+    <rect x="145" y="95" width="48" height="45" rx="8" fill="#D9E9F8"/>
+    <rect x="108" y="180" width="28" height="28" rx="6" fill="#EAF2FA"/>
+    <rect x="154" y="180" width="28" height="28" rx="6" fill="#EAF2FA"/>
+    <rect x="200" y="180" width="28" height="28" rx="6" fill="#EAF2FA"/>
+    <rect x="154" y="235" width="34" height="75" rx="8" fill="#DCEAF7"/>
+    <text x="170" y="340" text-anchor="middle" font-size="18" fill="#2C5D85" font-family="Inter, sans-serif" font-weight="700">Kommune</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="350" y="110" width="190" height="200" rx="20" fill="#FFFFFF" stroke="#C9DBED" stroke-width="2"/>
+    <rect x="380" y="145" width="130" height="12" rx="6" fill="#D5E6F6"/>
+    <rect x="380" y="170" width="110" height="10" rx="5" fill="#E5EEF8"/>
+    <rect x="380" y="190" width="100" height="10" rx="5" fill="#E5EEF8"/>
+    <rect x="380" y="220" width="70" height="28" rx="14" fill="#DDF0E7"/>
+    <text x="415" y="239" text-anchor="middle" font-size="13" fill="#2D795F" font-family="Inter, sans-serif" font-weight="700">Invitasjon</text>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="620" y="120" width="210" height="190" rx="20" fill="#FFFFFF" stroke="#C9DBED" stroke-width="2"/>
+    <rect x="650" y="145" width="150" height="44" rx="10" fill="#EAF2FB"/>
+    <rect x="658" y="160" width="134" height="10" rx="5" fill="#BAD3EA"/>
+    <circle cx="675" cy="240" r="19" fill="#D9EAF9"/>
+    <circle cx="727" cy="240" r="19" fill="#D9EAF9"/>
+    <circle cx="779" cy="240" r="19" fill="#D9EAF9"/>
+    <text x="725" y="295" text-anchor="middle" font-size="16" fill="#2B587D" font-family="Inter, sans-serif" font-weight="700">Foreldrekurs</text>
+  </g>
+
+  <path d="M272 205C297 200 320 196 341 198" stroke="#4B7EA7" stroke-width="4" stroke-linecap="round"/>
+  <path d="M340 198L329 189" stroke="#4B7EA7" stroke-width="4" stroke-linecap="round"/>
+  <path d="M340 198L329 207" stroke="#4B7EA7" stroke-width="4" stroke-linecap="round"/>
+
+  <path d="M548 209C571 210 589 212 611 213" stroke="#4B7EA7" stroke-width="4" stroke-linecap="round"/>
+  <path d="M610 213L598 204" stroke="#4B7EA7" stroke-width="4" stroke-linecap="round"/>
+  <path d="M610 213L598 222" stroke="#4B7EA7" stroke-width="4" stroke-linecap="round"/>
+</svg>

@@ -372,89 +372,30 @@ h2 {
 }
 
 .problem-visual {
-  min-height: clamp(170px, 30vh, 250px);
+  min-height: clamp(190px, 35vh, 310px);
   border-radius: 24px;
   background: linear-gradient(130deg, #e9f2fb 0%, #f6fbff 60%, #eaf6f0 100%);
   border: 1px solid #d7e3ef;
   display: grid;
   place-items: center;
-  position: relative;
   overflow: hidden;
+  padding: clamp(0.4rem, 1.4vw, 0.9rem);
 }
 
-.shape {
-  position: absolute;
-  border-radius: 999px;
+.problem-illustration {
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+  display: block;
+  filter: saturate(0.98);
+  transform: translateY(8px) scale(0.985);
+  opacity: 0.82;
+  transition: transform 320ms ease, opacity 320ms ease;
 }
 
-.shape-circle {
-  width: 140px;
-  height: 140px;
-  left: 8%;
-  top: 20%;
-  background: rgba(72, 127, 175, 0.22);
-}
-
-.shape-circle.small {
-  width: 90px;
-  height: 90px;
-  left: 72%;
-  top: 48%;
-}
-
-.shape-line {
-  width: 54%;
-  height: 14px;
-  left: 20%;
-  top: 58%;
-  border-radius: 12px;
-  background: rgba(66, 117, 158, 0.25);
-}
-
-.shape-line.short {
-  width: 34%;
-  top: 34%;
-}
-
-.shape-card {
-  width: 150px;
-  height: 120px;
-  left: 14%;
-  top: 30%;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #c8d8e8;
-  box-shadow: 0 8px 24px rgba(27, 58, 89, 0.12);
-}
-
-.shape-badge {
-  right: 14%;
-  top: 24%;
-  padding: 0.42rem 0.78rem;
-  background: #d5e7f6;
-  color: #1f4f72;
-  font-weight: 700;
-  font-size: 0.86rem;
-}
-
-.shape-badge.warning {
-  background: #f8e9d2;
-  color: #7a4f12;
-}
-
-.shape-badge.success {
-  background: #d9efe6;
-  color: #21684f;
-}
-
-.shape-dot-grid {
-  width: 130px;
-  height: 90px;
-  right: 16%;
-  bottom: 18%;
-  border-radius: 14px;
-  background-image: radial-gradient(circle, rgba(62, 112, 151, 0.36) 2px, transparent 2px);
-  background-size: 14px 14px;
+.problem-panel.is-active .problem-illustration {
+  transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
 .problem-panel.is-active .problem-copy,
@@ -552,9 +493,13 @@ h2 {
 
   .problem-copy,
   .problem-visual {
-    opacity: 0.55;
+    opacity: 0.6;
     transform: translateY(12px) scale(0.985);
     transition: opacity 240ms ease, transform 240ms ease;
+  }
+
+  .problem-visual {
+    min-height: clamp(170px, 32vh, 240px);
   }
 
   .problem-panel.is-active {
