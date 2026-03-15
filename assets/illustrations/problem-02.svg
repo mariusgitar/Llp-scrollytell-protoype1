@@ -1,0 +1,40 @@
+<svg width="900" height="420" viewBox="0 0 900 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Fagfolk opplever at det er nyttig</title>
+  <desc id="desc">Et kursrom med aktive deltakere, fasilitator og en markør som viser at kurset er nyttig.</desc>
+  <defs>
+    <linearGradient id="bg2" x1="80" y1="40" x2="820" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9F2FC"/>
+      <stop offset="1" stop-color="#EFF8F1"/>
+    </linearGradient>
+    <filter id="soft2" x="0" y="0" width="900" height="420" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-opacity="0.12" flood-color="#284B66"/>
+    </filter>
+  </defs>
+  <rect x="12" y="12" width="876" height="396" rx="30" fill="url(#bg2)"/>
+
+  <g filter="url(#soft2)">
+    <rect x="130" y="92" width="640" height="240" rx="24" fill="#FFFFFF" stroke="#C8DBEC" stroke-width="2"/>
+    <rect x="170" y="120" width="230" height="74" rx="14" fill="#EAF3FB"/>
+    <rect x="186" y="142" width="198" height="12" rx="6" fill="#BBD4EA"/>
+    <rect x="186" y="164" width="140" height="10" rx="5" fill="#D6E6F5"/>
+
+    <circle cx="510" cy="225" r="32" fill="#DCECF9"/>
+    <rect x="476" y="266" width="68" height="34" rx="17" fill="#CDE1F4"/>
+
+    <circle cx="622" cy="225" r="30" fill="#DCECF9"/>
+    <rect x="590" y="264" width="64" height="32" rx="16" fill="#CDE1F4"/>
+
+    <circle cx="714" cy="220" r="25" fill="#D4E8F7"/>
+    <rect x="687" y="252" width="54" height="28" rx="14" fill="#C6DCF1"/>
+
+    <rect x="458" y="112" width="170" height="42" rx="16" fill="#DDF1E8"/>
+    <text x="543" y="138" text-anchor="middle" font-size="18" fill="#276E56" font-family="Inter, sans-serif" font-weight="700">Nyttig</text>
+
+    <path d="M685 162H760" stroke="#5E8FB6" stroke-width="4" stroke-linecap="round"/>
+    <path d="M760 162L748 153" stroke="#5E8FB6" stroke-width="4" stroke-linecap="round"/>
+    <path d="M760 162L748 171" stroke="#5E8FB6" stroke-width="4" stroke-linecap="round"/>
+
+    <rect x="688" y="134" width="94" height="44" rx="14" fill="#FFFFFF" stroke="#D4E2EF"/>
+    <path d="M711 154L722 165L759 144" stroke="#57A07E" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

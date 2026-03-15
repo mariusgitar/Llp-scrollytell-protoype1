@@ -1,0 +1,32 @@
+<svg width="900" height="420" viewBox="0 0 900 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Likevel kommer få</title>
+  <desc id="desc">Samme kursrom som i forrige steg, men med få deltakere og flere tomme plasser.</desc>
+  <defs>
+    <linearGradient id="bg3" x1="80" y1="40" x2="820" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9F2FC"/>
+      <stop offset="1" stop-color="#F1F7EE"/>
+    </linearGradient>
+    <filter id="soft3" x="0" y="0" width="900" height="420" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-opacity="0.12" flood-color="#284B66"/>
+    </filter>
+  </defs>
+  <rect x="12" y="12" width="876" height="396" rx="30" fill="url(#bg3)"/>
+
+  <g filter="url(#soft3)">
+    <rect x="130" y="92" width="640" height="240" rx="24" fill="#FFFFFF" stroke="#C8DBEC" stroke-width="2"/>
+    <rect x="170" y="120" width="230" height="74" rx="14" fill="#EAF3FB"/>
+    <rect x="186" y="142" width="198" height="12" rx="6" fill="#BBD4EA"/>
+    <rect x="186" y="164" width="140" height="10" rx="5" fill="#D6E6F5"/>
+
+    <circle cx="520" cy="228" r="30" fill="#DCECF9"/>
+    <rect x="488" y="264" width="64" height="30" rx="15" fill="#CDE1F4"/>
+
+    <rect x="588" y="206" width="54" height="34" rx="10" fill="#F5F8FC" stroke="#D8E4EF" stroke-dasharray="5 5"/>
+    <rect x="670" y="206" width="54" height="34" rx="10" fill="#F5F8FC" stroke="#D8E4EF" stroke-dasharray="5 5"/>
+    <rect x="588" y="256" width="54" height="34" rx="10" fill="#F5F8FC" stroke="#D8E4EF" stroke-dasharray="5 5"/>
+    <rect x="670" y="256" width="54" height="34" rx="10" fill="#F5F8FC" stroke="#D8E4EF" stroke-dasharray="5 5"/>
+
+    <rect x="458" y="112" width="190" height="42" rx="16" fill="#F7E8D4"/>
+    <text x="553" y="138" text-anchor="middle" font-size="18" fill="#7A5320" font-family="Inter, sans-serif" font-weight="700">Få deltakere</text>
+  </g>
+</svg>

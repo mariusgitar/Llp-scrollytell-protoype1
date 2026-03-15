@@ -1,0 +1,46 @@
+<svg width="900" height="420" viewBox="0 0 900 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Teamet må forstå hvorfor</title>
+  <desc id="desc">Et team undersøker hvorfor få deltar og beveger seg mot LÆRE-fasen.</desc>
+  <defs>
+    <linearGradient id="bg4" x1="80" y1="40" x2="820" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EAF2FC"/>
+      <stop offset="1" stop-color="#E8F5EF"/>
+    </linearGradient>
+    <filter id="soft4" x="0" y="0" width="900" height="420" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-opacity="0.12" flood-color="#27465F"/>
+    </filter>
+  </defs>
+  <rect x="12" y="12" width="876" height="396" rx="30" fill="url(#bg4)"/>
+
+  <g filter="url(#soft4)">
+    <rect x="90" y="122" width="230" height="175" rx="20" fill="#FFFFFF" stroke="#C9DBEC" stroke-width="2"/>
+    <rect x="115" y="145" width="120" height="14" rx="7" fill="#D8E7F6"/>
+    <rect x="115" y="168" width="90" height="12" rx="6" fill="#E5EFF8"/>
+    <rect x="115" y="198" width="50" height="32" rx="8" fill="#F6F9FD" stroke="#D5E2EE" stroke-dasharray="5 4"/>
+    <rect x="175" y="198" width="50" height="32" rx="8" fill="#F6F9FD" stroke="#D5E2EE" stroke-dasharray="5 4"/>
+    <rect x="235" y="198" width="50" height="32" rx="8" fill="#F6F9FD" stroke="#D5E2EE" stroke-dasharray="5 4"/>
+    <text x="205" y="270" text-anchor="middle" font-size="15" fill="#5B6E81" font-family="Inter, sans-serif" font-weight="600">Lavt oppmøte</text>
+  </g>
+
+  <g filter="url(#soft4)">
+    <circle cx="448" cy="222" r="82" fill="#FFFFFF" stroke="#C9DBEC" stroke-width="2"/>
+    <circle cx="430" cy="210" r="26" fill="#E4EFF9" stroke="#BFD5EA" stroke-width="2"/>
+    <rect x="447" y="230" width="14" height="34" rx="7" transform="rotate(-38 447 230)" fill="#5A87AE"/>
+    <text x="505" y="199" font-size="60" fill="#2E648D" font-family="Inter, sans-serif" font-weight="700">?</text>
+    <rect x="390" y="262" width="108" height="22" rx="11" fill="#DDEEF9"/>
+    <text x="444" y="278" text-anchor="middle" font-size="12" fill="#2A5A80" font-family="Inter, sans-serif" font-weight="700">Hva hindrer deltakelse?</text>
+  </g>
+
+  <g filter="url(#soft4)">
+    <rect x="630" y="125" width="180" height="170" rx="20" fill="#FFFFFF" stroke="#C9DBEC" stroke-width="2"/>
+    <rect x="660" y="152" width="120" height="38" rx="14" fill="#DDF1E8"/>
+    <text x="720" y="176" text-anchor="middle" font-size="24" fill="#286E57" font-family="Inter, sans-serif" font-weight="700">LÆRE</text>
+    <rect x="660" y="203" width="120" height="12" rx="6" fill="#D8E8F6"/>
+    <rect x="660" y="225" width="90" height="10" rx="5" fill="#E5EEF8"/>
+  </g>
+
+  <path d="M322 209C347 208 361 207 380 208" stroke="#5A8DB3" stroke-width="4" stroke-linecap="round"/>
+  <path d="M521 209C546 208 578 206 615 208" stroke="#5A8DB3" stroke-width="4" stroke-linecap="round"/>
+  <path d="M615 208L603 199" stroke="#5A8DB3" stroke-width="4" stroke-linecap="round"/>
+  <path d="M615 208L603 217" stroke="#5A8DB3" stroke-width="4" stroke-linecap="round"/>
+</svg>
