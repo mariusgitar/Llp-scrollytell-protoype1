@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLP Quest – Lære-fasen prototype</title>
+    <meta
+      name="description"
+      content="En enkel scrollytelling-prototype for Lære-fasen i Lære, Lage, Prøve."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero section">
+      <div class="eyebrow">Lære · Lage · Prøve</div>
+      <h1>LLP Quest: Første steg er å lære</h1>
+      <p class="lead">
+        Kommunen tilbyr foreldrekurs. Likevel møter få opp. Teamet vet at kurset kan være
+        nyttig – men før de endrer noe, må de forstå situasjonen bedre.
+      </p>
+      <a class="scroll-hint" href="#story-1">Scroll videre ↓</a>
+    </header>
+
+    <main>
+      <section id="story-1" class="section story">
+        <h2>Kurset finnes, men foreldre kommer ikke</h2>
+        <p>
+          De ansatte har brukt tid på å planlegge et godt tilbud. Tilbakemeldingene fra de få som
+          deltar er positive. Likevel er oppmøtet lavt, uke etter uke.
+        </p>
+        <p>
+          Frustrasjonen øker: “Vi vet jo at dette kan hjelpe. Hvorfor når vi ikke ut?”
+        </p>
+      </section>
+
+      <section class="section story">
+        <h2>Teamet trenger innsikt før handling</h2>
+        <p>
+          I stedet for å hoppe rett til løsninger bestemmer teamet seg for å gjøre et lite, bevisst
+          valg i <strong>LÆRE</strong>-fasen: Hvordan skal de lære mer om hva som faktisk skjer?
+        </p>
+      </section>
+
+      <section class="section choice" aria-labelledby="choice-title">
+        <h2 id="choice-title">Hvordan vil dere lære mer?</h2>
+        <p class="choice-intro">Velg én metode for å ta neste steg i fortellingen.</p>
+
+        <div class="options" role="list">
+          <button class="option-card" data-method="intervju" type="button" role="listitem">
+            <span class="option-title">Brukerintervju</span>
+            <span class="option-text">Snakk direkte med noen foreldre.</span>
+          </button>
+
+          <button class="option-card" data-method="survey" type="button" role="listitem">
+            <span class="option-title">Spørreundersøkelse</span>
+            <span class="option-text">Få et raskt bilde fra mange på én gang.</span>
+          </button>
+
+          <button class="option-card" data-method="experience" type="button" role="listitem">
+            <span class="option-title">Basere seg på egen erfaring</span>
+            <span class="option-text">Bruk intern kunnskap for å tolke situasjonen.</span>
+          </button>
+        </div>
+      </section>
+
+      <section id="outcome" class="section outcome hidden" aria-live="polite">
+        <div class="outcome-card">
+          <p class="label">Valgt metode</p>
+          <h3 id="outcome-title"></h3>
+          <p id="outcome-story"></p>
+
+          <div class="insight-block">
+            <p class="label">Innsikt</p>
+            <p id="outcome-insight"></p>
+          </div>
+
+          <p class="method-note" id="outcome-note"></p>
+        </div>
+      </section>
+
+      <section id="convergence" class="section story hidden">
+        <h2>Nå vet teamet litt mer</h2>
+        <p id="convergence-text"></p>
+        <p>
+          Uansett metode har de tatt et viktig første steg: De har lært noe som kan forme bedre
+          valg videre.
+        </p>
+      </section>
+    </main>
+
+    <footer class="section footer">
+      <p><strong>Lære, Lage, Prøve</strong> · Dette var en prototype av LÆRE-fasen.</p>
+      <p>Neste steg i en videre versjon er å bruke innsikten til å lage og teste tiltak.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
