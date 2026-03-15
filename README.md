@@ -1,12 +1,29 @@
-# LLP Quest – LÆRE prototype
+# LLP Quest – LÆRE + LAGE prototype
 
-Dette er en liten, statisk prototype for å teste **følelsen av “scrollytelling + quest”** i LÆRE-fasen av metoden **Lære, Lage, Prøve (LLP)**.
+Dette er en liten, statisk prototype for å teste **scrollytelling-opplevelsen** i de to første fasene av metoden **Lære, Lage, Prøve (LLP)**.
 
-Prototypen viser én case:
+Prototypen bruker én case:
 - En kommune tilbyr foreldrekurs
 - Oppmøtet er lavt
-- Brukeren velger én læringsmetode
-- Utfallet vises, før fortellingen samles igjen
+- Brukeren velger først en metode i **LÆRE**
+- Deretter velger brukeren et første konsept i **LAGE**
+- Valgene samles i en kort oppsummering før en teaser om neste steg: **PRØVE**
+
+## Struktur i prototypen
+
+1. Intro og problemforståelse (lav deltakelse på foreldrekurs)
+2. **LÆRE** med tre valg:
+   - Brukerintervju
+   - Spørreundersøkelse
+   - Basere seg på egen erfaring
+3. Overgang fra innsikt til idéarbeid
+4. **LAGE** med tre valg:
+   - Ny måte å invitere foreldre på
+   - En enklere pilotversjon av kurset
+   - En samskapingsøkt med foreldre
+5. Dynamisk resultat der LAGE-retningen påvirkes litt av valgt LÆRE-metode
+6. Oppsummeringskort med valgte steg og konseptretning
+7. Kort teaser om at neste steg er PRØVE
 
 Målet er rask validering av format og retning, ikke ferdig produkt.
 
@@ -37,6 +54,6 @@ Gå til: `http://localhost:8000`
 
 ## Hvordan utvide senere
 
-- **Flere faser (LAGE / PRØVE):** Legg til nye seksjoner eller egne sider med samme struktur, og før brukerens valg videre som enkle dataobjekter i JavaScript.
-- **Flere case:** Flytt case-tekst og metoder inn i egne datafiler/objekter og render samme UI-mønster for ulike scenarioer.
-- **Lettvekts feedback-loop:** Legg til et lite refleksjonsspørsmål etter utfall (f.eks. “Hva ville du testet nå?”) og lagre svar i en enkel form-løsning eller tredjeparts skjema.
+- **PRØVE-fasen:** Legg til en tredje valgseksjon der teamet velger hva de vil teste først, og vis hvilke læringsspørsmål testen skal svare på.
+- **Flere case:** Flytt all tekst og alle valg inn i egne dataobjekter per case for gjenbruk av samme UI-mønster.
+- **Enkel refleksjon:** Legg til et kort spørsmål etter oppsummeringen, som “Hva ville du testet først i PRØVE?”.
