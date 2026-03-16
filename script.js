@@ -4,19 +4,22 @@ const learnOptions = {
     insight:
       'Teamet hører at noen foreldre tror kurset er for dem som allerede har store utfordringer.',
     method: 'Direkte samtaler gir nyanser om motivasjon, språk og opplevde barrierer.',
-    bridge: 'Intervjuene gir konkrete ord som teamet kan bruke når de former første løsning.'
+    bridge: 'Intervjuene gir konkrete ord som teamet kan bruke når de former første løsning.',
+    sceneCaption: 'Forelder + snakkeboble + sitat gir teamet konkrete ord.'
   },
   survey: {
     title: 'Spørreundersøkelse',
     insight: 'Teamet ser mønstre i deltakelse, men får færre forklaringer på hvorfor oppmøtet er lavt.',
     method: 'Undersøkelser er raske for oversikt, men svakere på dybde.',
-    bridge: 'Mønstrene fra undersøkelsen gir retning for hva som bør testes først.'
+    bridge: 'Mønstrene fra undersøkelsen gir retning for hva som bør testes først.',
+    sceneCaption: 'Mange svar danner et tydelig mønster som styrer første valg.'
   },
   experience: {
     title: 'Basere seg på egen erfaring',
     insight: 'Teamet mistenker at tidspunkt og terskel for oppstart er hovedårsaker til lav deltakelse.',
     method: 'Intern erfaring kan være nyttig, men bør valideres så tidlig som mulig.',
-    bridge: 'Erfaringssporet gir en rask hypotese som kan formes til en enkel første løsning.'
+    bridge: 'Erfaringssporet gir en rask hypotese som kan formes til en enkel første løsning.',
+    sceneCaption: 'Teamets hypotese vises som tankeboble før første test.'
   }
 };
 
@@ -25,6 +28,8 @@ const makeOptions = {
     title: 'Ny måte å invitere foreldre på',
     base: 'Teamet lager en vennlig invitasjon med enklere språk og tydelig nytte.',
     note: 'Lav innsats, høy læring i tidlig test.',
+    sceneTitle: 'Konsept: Ny invitasjon',
+    sceneCopy: 'Språk og kanal testes',
     variationByLearn: {
       intervju: 'Språket bygger på ordvalg foreldre selv brukte i intervjuene.',
       survey: 'Invitasjonen målrettes mot grupper med lavest respons i undersøkelsen.',
@@ -35,6 +40,8 @@ const makeOptions = {
     title: 'En enklere pilotversjon av kurset',
     base: 'Teamet lager en kort pilot med lav terskel og tydelig struktur fra første møte.',
     note: 'En liten pilot gjør det enklere å justere før større utrulling.',
+    sceneTitle: 'Konsept: Enkel pilot',
+    sceneCopy: 'Kort test med lav terskel',
     variationByLearn: {
       intervju: 'Piloten starter med trygg introduksjon som svar på opplevd stigma.',
       survey: 'Piloten legges til tidspunkt som matcher mønstrene i dataene.',
@@ -45,6 +52,8 @@ const makeOptions = {
     title: 'En samskapingsøkt med foreldre',
     base: 'Teamet inviterer foreldre inn for å forme innhold, format og rammer sammen.',
     note: 'Samskaping bygger eierskap og forbedrer relevansen i tilbudet.',
+    sceneTitle: 'Konsept: Samskaping',
+    sceneCopy: 'Foreldre former løsningen',
     variationByLearn: {
       intervju: 'Samtaletemaene i økten bygger direkte på innsiktene fra intervjuene.',
       survey: 'Økten bruker surveyfunn som utgangspunkt for å grave i hvorfor-mønstrene.',
@@ -72,6 +81,43 @@ const statusMake = document.getElementById('status-make');
 const summaryLearn = document.getElementById('summary-learn');
 const summaryMake = document.getElementById('summary-make');
 const summaryResult = document.getElementById('summary-result');
+const journeyScene = document.getElementById('journey-scene');
+const sceneCaption = document.getElementById('scene-caption');
+const sceneConceptTitle = document.getElementById('scene-concept-title');
+const sceneConceptCopy = document.getElementById('scene-concept-copy');
+
+function updateSceneForLearn(learnKey) {
+  if (!journeyScene || !sceneCaption) return;
+
+  if (!learnKey || !learnOptions[learnKey]) {
+    journeyScene.removeAttribute('data-learn');
+    sceneCaption.textContent = 'Velg en metode i LÆRE';
+    return;
+  }
+
+  const learn = learnOptions[learnKey];
+  journeyScene.dataset.learn = learnKey;
+  sceneCaption.textContent = learn.sceneCaption;
+}
+
+function setSceneStage(stage) {
+  if (!journeyScene) return;
+  journeyScene.dataset.stage = stage;
+}
+
+function updateSceneForMake(makeKey) {
+  if (!sceneConceptTitle || !sceneConceptCopy) return;
+
+  if (!makeKey || !makeOptions[makeKey]) {
+    sceneConceptTitle.textContent = 'Første idé';
+    sceneConceptCopy.textContent = 'Velg i LAGE';
+    return;
+  }
+
+  const make = makeOptions[makeKey];
+  sceneConceptTitle.textContent = make.sceneTitle;
+  sceneConceptCopy.textContent = make.sceneCopy;
+}
 
 function renderLearnChoice(learnKey) {
   const learn = learnOptions[learnKey];
@@ -91,6 +137,7 @@ function renderLearnChoice(learnKey) {
   makeSection.classList.remove('hidden');
 
   statusLearn.textContent = learn.title;
+  updateSceneForLearn(learnKey);
 }
 
 function renderMakeChoice() {
@@ -115,6 +162,7 @@ function renderMakeChoice() {
   summaryLearn.textContent = learn.title;
   summaryMake.textContent = make.title;
   summaryResult.textContent = `${make.base} ${variation}`;
+  updateSceneForMake(state.makeChoice);
 }
 
 function resetMakeFlow() {
@@ -122,6 +170,7 @@ function resetMakeFlow() {
   statusMake.textContent = 'Ikke valgt';
   makeOutcome.classList.add('hidden');
   summarySection.classList.add('hidden');
+  updateSceneForMake(null);
 
   makeButtons.forEach((button) => {
     button.classList.remove('selected');
@@ -177,6 +226,8 @@ restartButton.addEventListener('click', () => {
   });
 
   resetMakeFlow();
+  setSceneStage('transition');
+  updateSceneForLearn(null);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
@@ -276,6 +327,24 @@ function updateProblemScrollScene() {
 
   const activeIndex = Math.min(problemPanels.length - 1, Math.floor(progress * problemPanels.length));
   setProblemProgress(activeIndex);
+}
+
+const makeSceneObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.target !== makeSection || makeSection.classList.contains('hidden')) return;
+      if (entry.isIntersecting && entry.intersectionRatio > 0.22) {
+        setSceneStage('make');
+      } else if (entry.boundingClientRect.top > 0) {
+        setSceneStage('transition');
+      }
+    });
+  },
+  { threshold: [0.2, 0.45] }
+);
+
+if (makeSection) {
+  makeSceneObserver.observe(makeSection);
 }
 
 updateProblemScrollScene();

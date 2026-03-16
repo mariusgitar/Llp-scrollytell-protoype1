@@ -196,6 +196,117 @@ h2 {
   padding: clamp(1.1rem, 2.5vw, 1.8rem);
 }
 
+.transition-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.transition-hint {
+  margin-bottom: 0;
+  color: #2f658f;
+}
+
+.journey-scene {
+  margin: 0;
+  border-radius: 20px;
+  border: 1px solid #d5e2ef;
+  background: linear-gradient(160deg, #edf5fc 0%, #f5fbff 52%, #edf8f4 100%);
+  padding: 0.55rem;
+  box-shadow: inset 0 0 0 1px #f9fdff;
+}
+
+.journey-scene svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.scene-bg,
+.scene-parent,
+.scene-team,
+.scene-concept-card {
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.scene-bg {
+  fill: rgba(255, 255, 255, 0.86);
+  stroke: #cadaea;
+}
+
+.scene-parent {
+  fill: #79a7c7;
+  opacity: 0.9;
+}
+
+.scene-team {
+  fill: #c6dceb;
+}
+
+.scene-bubble,
+.scene-survey {
+  fill: #2a6794;
+  stroke: #2a6794;
+  stroke-width: 2;
+  opacity: 0.15;
+  transform: translateY(8px) scale(0.98);
+  transform-origin: 40% 50%;
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.scene-survey {
+  fill: #2d7a88;
+  stroke: none;
+}
+
+.scene-caption {
+  fill: #2b5578;
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 0.92;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.scene-concept {
+  opacity: 0;
+  transform: translateY(14px) scale(0.96);
+  transform-origin: center;
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.scene-concept-card {
+  fill: #e9f6ef;
+  stroke: #96c9b1;
+  stroke-width: 2;
+}
+
+.scene-concept-title,
+.scene-concept-copy {
+  fill: #275f4d;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.scene-concept-copy {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.journey-scene[data-learn='intervju'] .scene-speech,
+.journey-scene[data-learn='experience'] .scene-thought,
+.journey-scene[data-learn='survey'] .scene-survey {
+  opacity: 0.95;
+  transform: translateY(0) scale(1);
+}
+
+.journey-scene[data-stage='make'] .scene-concept {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.journey-scene[data-stage='make'] .scene-team {
+  transform: translateY(-4px) scale(1.02);
+}
+
 .outcome-card p,
 .outcome-card h3 {
   margin-top: 0;
@@ -419,6 +530,16 @@ h2 {
   }
 
   .sticky-panel {
+    position: sticky;
+    top: 5.2rem;
+  }
+
+  .transition-layout {
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: start;
+  }
+
+  .journey-scene {
     position: sticky;
     top: 5.2rem;
   }

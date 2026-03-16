@@ -155,9 +155,47 @@
       </section>
 
       <section id="transition" class="section transition-block reveal hidden" aria-live="polite">
-        <p class="eyebrow">Fra LÆRE til LAGE</p>
-        <h2>Innsikten former hva teamet lager først</h2>
-        <p id="transition-text"></p>
+        <div class="transition-layout">
+          <div class="transition-copy">
+            <p class="eyebrow">Fra LÆRE til LAGE</p>
+            <h2>Innsikten former hva teamet lager først</h2>
+            <p id="transition-text"></p>
+            <p class="transition-hint">Scenen under følger valget ditt videre inn i LAGE.</p>
+          </div>
+
+          <figure id="journey-scene" class="journey-scene" data-stage="transition" aria-live="polite">
+            <svg viewBox="0 0 620 320" role="img" aria-labelledby="scene-title scene-desc">
+              <title id="scene-title">Visuell scene fra LÆRE til LAGE</title>
+              <desc id="scene-desc">Scenen oppdateres basert på valgt læringsmetode og konseptvalg.</desc>
+              <rect x="20" y="30" width="580" height="260" rx="24" class="scene-bg" />
+              <circle cx="130" cy="200" r="45" class="scene-parent" />
+              <rect x="230" y="120" width="160" height="120" rx="16" class="scene-team" />
+              <g class="scene-bubble scene-speech" data-scene-layer="intervju">
+                <rect x="95" y="95" width="120" height="55" rx="12" />
+                <path d="M130 150 l12 18 l16 -18" />
+              </g>
+              <g class="scene-bubble scene-thought" data-scene-layer="experience">
+                <circle cx="150" cy="110" r="28" />
+                <circle cx="185" cy="88" r="10" />
+                <circle cx="197" cy="74" r="6" />
+              </g>
+              <g class="scene-survey" data-scene-layer="survey">
+                <circle cx="115" cy="110" r="7" />
+                <circle cx="140" cy="95" r="7" />
+                <circle cx="165" cy="112" r="7" />
+                <circle cx="184" cy="98" r="7" />
+                <circle cx="200" cy="120" r="7" />
+                <circle cx="128" cy="130" r="7" />
+              </g>
+              <text id="scene-caption" x="260" y="185" class="scene-caption">Velg en metode i LÆRE</text>
+              <g class="scene-concept" id="scene-concept-layer" aria-hidden="true">
+                <rect x="430" y="85" width="145" height="145" rx="18" class="scene-concept-card" />
+                <text id="scene-concept-title" x="448" y="130" class="scene-concept-title">Første idé</text>
+                <text id="scene-concept-copy" x="448" y="160" class="scene-concept-copy">Velg i LAGE</text>
+              </g>
+            </svg>
+          </figure>
+        </div>
       </section>
 
       <section id="make" class="story-block section hidden">
@@ -182,6 +220,10 @@
           </aside>
 
           <div class="story-flow">
+            <article class="text-card make-intro reveal">
+              <p class="eyebrow">Scenen utvikler seg</p>
+              <p>Når du går inn i LAGE får scenen et konseptkort som speiler første retning.</p>
+            </article>
             <article id="make-outcome" class="text-card outcome-card make-outcome hidden" aria-live="polite"></article>
           </div>
         </div>
