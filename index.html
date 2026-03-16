@@ -54,17 +54,35 @@
               </p>
             </header>
 
-            <div class="problem-track" data-problem-track>
-              <article class="problem-panel" data-problem-panel>
+            <div class="problem-content">
+              <div class="problem-scene-shell">
                 <div class="problem-visual">
-                  <img
-                    class="problem-illustration"
-                    src="assets/illustrations/problem-01.svg"
-                    alt="Kommunen sender invitasjon til et foreldrekurs som finnes og er organisert."
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <div class="problem-scene step-1" id="problem-scene" aria-hidden="true">
+                    <div class="scene-room-layer"></div>
+                    <div class="scene-layer scene-parents" data-scene-layer="parents">
+                      <span class="person"></span>
+                      <span class="person"></span>
+                      <span class="person"></span>
+                      <span class="person"></span>
+                    </div>
+                    <div class="scene-layer scene-bubble" data-scene-layer="bubble">Nyttig!</div>
+                    <div class="scene-layer scene-chairs" data-scene-layer="chairs">
+                      <span class="chair"></span>
+                      <span class="chair"></span>
+                      <span class="chair"></span>
+                    </div>
+                    <div class="scene-layer scene-team" data-scene-layer="team">
+                      <span class="team-avatar"></span>
+                      <span class="team-avatar"></span>
+                      <span class="question-mark">?</span>
+                    </div>
+                  </div>
                 </div>
+              </div>
+
+              <div class="problem-track-viewport">
+                <div class="problem-track" data-problem-track>
+              <article class="problem-panel" data-problem-panel>
                 <div class="problem-copy">
                   <p class="panel-kicker">Steg 1</p>
                   <h3>Kommunen tilbyr foreldrekurs</h3>
@@ -73,15 +91,6 @@
               </article>
 
               <article class="problem-panel" data-problem-panel>
-                <div class="problem-visual">
-                  <img
-                    class="problem-illustration"
-                    src="assets/illustrations/problem-02.svg"
-                    alt="Foreldre og fagperson i kursrom gir positiv tilbakemelding på nytte."
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
                 <div class="problem-copy">
                   <p class="panel-kicker">Steg 2</p>
                   <h3>Fagfolk opplever at det er nyttig</h3>
@@ -90,15 +99,6 @@
               </article>
 
               <article class="problem-panel" data-problem-panel>
-                <div class="problem-visual">
-                  <img
-                    class="problem-illustration"
-                    src="assets/illustrations/problem-03.svg"
-                    alt="Samme kursrom, men med få deltakere og mange tomme plasser."
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
                 <div class="problem-copy">
                   <p class="panel-kicker">Steg 3</p>
                   <h3>Likevel kommer få</h3>
@@ -107,21 +107,14 @@
               </article>
 
               <article class="problem-panel" data-problem-panel>
-                <div class="problem-visual">
-                  <img
-                    class="problem-illustration"
-                    src="assets/illustrations/problem-04.svg"
-                    alt="Teamet undersøker hvorfor få deltar og peker videre mot LÆRE-fasen."
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
                 <div class="problem-copy">
                   <p class="panel-kicker">Steg 4</p>
                   <h3>Teamet må forstå hvorfor</h3>
                   <p>Før nye tiltak lages, starter de i <strong>LÆRE</strong> for å forstå foreldrenes situasjon.</p>
                 </div>
               </article>
+                </div>
+              </div>
             </div>
           </div>
         </div>
