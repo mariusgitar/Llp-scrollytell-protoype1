@@ -199,15 +199,10 @@ const problemTrack = document.querySelector('[data-problem-track]');
 const problemPanels = document.querySelectorAll('[data-problem-panel]');
 const problemDots = document.querySelectorAll('[data-problem-dot]');
 const problemProgressText = document.getElementById('problem-progress-text');
-const problemScene = document.getElementById('problem-scene');
 let mobileProblemObserver = null;
 let mobileActiveProblemIndex = 0;
 
 function setProblemProgress(activeIndex) {
-  if (problemScene) {
-    problemScene.className = `problem-scene step-${activeIndex + 1}`;
-  }
-
   problemPanels.forEach((panel, index) => {
     panel.classList.toggle('is-active', index === activeIndex);
   });
@@ -273,7 +268,7 @@ function updateProblemScrollScene() {
   const maxScroll = Math.max(problemRange.offsetHeight - window.innerHeight, 1);
   const traveled = Math.min(Math.max(-rangeRect.top, 0), maxScroll);
   const progress = traveled / maxScroll;
-  const maxTranslate = Math.max(problemTrack.scrollWidth - problemTrack.clientWidth, 0);
+  const maxTranslate = problemTrack.scrollWidth - window.innerWidth;
   const translateX = Math.max(0, progress * maxTranslate);
 
   // Horisontal track drives av hvor langt brukeren har scrollet i denne seksjonen.
