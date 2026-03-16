@@ -188,31 +188,46 @@ h2 {
   font-size: 0.9rem;
 }
 
-.transition-block {
-  margin: 1rem auto;
-  background: #f8fcff;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: clamp(1.1rem, 2.5vw, 1.8rem);
+.transition-chapter {
+  width: 100%;
+  max-width: none;
+  margin: clamp(2rem, 6vw, 4rem) 0;
+  padding: clamp(2rem, 5vw, 3.6rem) 0;
+  background: linear-gradient(180deg, #edf5ff 0%, #f8fcff 48%, #f1f9f5 100%);
+  border-top: 1px solid #dbe7f3;
+  border-bottom: 1px solid #dbe7f3;
 }
 
-.transition-layout {
+.transition-shell {
+  width: min(1280px, 100% - 2rem);
+  margin: 0 auto;
   display: grid;
-  gap: 1rem;
+  gap: clamp(1rem, 2vw, 1.4rem);
 }
 
-.transition-hint {
-  margin-bottom: 0;
-  color: #2f658f;
+.transition-header {
+  width: min(700px, 100%);
+  display: grid;
+  gap: 0.6rem;
+}
+
+.transition-header p {
+  margin: 0;
+}
+
+.transition-note {
+  margin: 0;
+  color: #2a5f87;
+  font-weight: 500;
 }
 
 .journey-scene {
   margin: 0;
-  border-radius: 20px;
-  border: 1px solid #d5e2ef;
-  background: linear-gradient(160deg, #edf5fc 0%, #f5fbff 52%, #edf8f4 100%);
-  padding: 0.55rem;
-  box-shadow: inset 0 0 0 1px #f9fdff;
+  border-radius: 30px;
+  border: 1px solid #cadcec;
+  background: linear-gradient(160deg, #e8f2fc 0%, #f5fbff 50%, #eaf7f0 100%);
+  padding: clamp(0.5rem, 1.3vw, 0.9rem);
+  box-shadow: 0 20px 50px rgba(31, 62, 95, 0.15), inset 0 0 0 1px #f7fcff;
 }
 
 .journey-scene svg {
@@ -224,7 +239,9 @@ h2 {
 .scene-bg,
 .scene-parent,
 .scene-team,
-.scene-concept-card {
+.scene-concept-card,
+.scene-flow-line,
+.scene-flow-arrow {
   transition: opacity 260ms ease, transform 260ms ease;
 }
 
@@ -233,13 +250,57 @@ h2 {
   stroke: #cadaea;
 }
 
+.scene-insight-zone {
+  fill: #eef6ff;
+  stroke: #bfd5e8;
+  stroke-width: 2;
+}
+
+.scene-concept-shell {
+  fill: #edf8f3;
+  stroke: #b9ddcb;
+  stroke-width: 2;
+}
+
 .scene-parent {
-  fill: #79a7c7;
-  opacity: 0.9;
+  fill: #76a8cb;
+  opacity: 0.95;
 }
 
 .scene-team {
-  fill: #c6dceb;
+  fill: #ccdeed;
+}
+
+.scene-chip {
+  fill: #d5e7f6;
+}
+
+.scene-chip-label {
+  fill: #2e5d82;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.scene-chip-concept {
+  fill: #d7efe2;
+}
+
+.scene-chip-label-concept {
+  fill: #2d6b55;
+}
+
+.scene-flow-line {
+  stroke: #8eb0ca;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 10 10;
+  opacity: 0.7;
+}
+
+.scene-flow-arrow {
+  fill: #739cbc;
+  opacity: 0.8;
 }
 
 .scene-bubble,
@@ -259,10 +320,10 @@ h2 {
 }
 
 .scene-caption {
-  fill: #2b5578;
-  font-size: 20px;
-  font-weight: 600;
-  opacity: 0.92;
+  fill: #2f5f85;
+  font-size: 34px;
+  font-weight: 700;
+  opacity: 0.9;
   transition: opacity 220ms ease, transform 220ms ease;
 }
 
@@ -282,13 +343,13 @@ h2 {
 .scene-concept-title,
 .scene-concept-copy {
   fill: #275f4d;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 650;
 }
 
 .scene-concept-copy {
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 550;
 }
 
 .journey-scene[data-learn='intervju'] .scene-speech,
@@ -534,12 +595,20 @@ h2 {
     top: 5.2rem;
   }
 
-  .transition-layout {
-    grid-template-columns: 0.95fr 1.05fr;
+  .transition-shell {
+    grid-template-columns: minmax(280px, 0.7fr) minmax(520px, 1.3fr);
     align-items: start;
+    column-gap: clamp(1rem, 2vw, 2rem);
+  }
+
+  .transition-header,
+  .transition-note {
+    grid-column: 1;
   }
 
   .journey-scene {
+    grid-column: 2;
+    grid-row: 1 / span 2;
     position: sticky;
     top: 5.2rem;
   }
@@ -557,6 +626,14 @@ h2 {
 
   .problem-scroll-range {
     height: auto;
+  }
+
+  .journey-scene {
+    border-radius: 22px;
+  }
+
+  .scene-caption {
+    font-size: 24px;
   }
 
   .problem-sticky {
